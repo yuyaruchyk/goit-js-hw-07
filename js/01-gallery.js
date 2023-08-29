@@ -32,3 +32,32 @@ gallery.insertAdjacentHTML("afterbegin", markup);
 
 
 
+
+gallery.addEventListener("click", (event) => {
+    
+   event.preventDefault();
+
+    if (!event.target.classList.contains("gallery__item")) {
+        return;
+        
+    }
+
+
+
+    
+    
+   
+});
+    
+
+
+
+
+
+ 
+
+
+
+
+
+
