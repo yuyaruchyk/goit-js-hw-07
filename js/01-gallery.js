@@ -35,19 +35,35 @@ gallery.insertAdjacentHTML("afterbegin", markup);
 
 gallery.addEventListener("click", (event) => {
     
-   event.preventDefault();
+    event.preventDefault();
 
-    if (!event.target.classList.contains("gallery__item")) {
-        return;
+    if (event.target.classList.contains("gallery__image")) {
+        const originalImageUrl = event.target.dataset.source;
+        const imageDescription = event.target.dataset.alt;
+        const instance = basicLightbox.create(`
+      <div class="modal">
+        <img src="${originalImageUrl}" alt="${imageDescription}" />
+      </div>
+    `);
+
+        instance.show();
+
+     const modalWindow = document.querySelector(".modal");
+console.log(modalWindow);
         
-    }
-
-
-
-    
-    
+        modalWindow.addEventListener("click", () => {
+            instance.close();
+        }
+     )
    
+  }
 });
+
+
+
+   
+
+
     
 
 
