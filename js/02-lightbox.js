@@ -22,9 +22,11 @@ const markup = liArray.join("");
 
 gallery.insertAdjacentHTML("afterbegin", markup);
 
+
+
 const lightbox = new SimpleLightbox(".gallery a", {
   captionsData: "alt",
   captionDelay: 250,
 });
 
-lightbox.open();
+

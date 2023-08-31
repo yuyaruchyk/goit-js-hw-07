@@ -29,6 +29,8 @@ gallery.addEventListener("click", (event) => {
   if (event.target.classList.contains("gallery__image")) {
     const originalImageUrl = event.target.dataset.source;
     const imageDescription = event.target.alt;
+
+    
     const instance = basicLightbox.create(`
       <div class="modal">
         <img src="${originalImageUrl}" alt="${imageDescription}" />
@@ -37,12 +39,19 @@ gallery.addEventListener("click", (event) => {
 
     instance.show();
 
+    
     const modalWindow = document.querySelector(".modal");
+    
 
-    console.log(modalWindow);
+
 
     modalWindow.addEventListener("click", () => {
       instance.close();
+      
     });
   }
+    
+
+
+
 });
