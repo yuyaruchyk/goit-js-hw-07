@@ -1,5 +1,5 @@
 import { galleryItems } from './gallery-items.js';
-// Change code below this line
+
 
 const gallery = document.querySelector(".gallery");
 
@@ -25,25 +25,26 @@ const markup = liArray.join("");
 
 gallery.insertAdjacentHTML("afterbegin", markup);
 
+
+
+
+
+
 gallery.addEventListener("click", (event) => {
-    event.preventDefault();
+  event.preventDefault();
+  
+  if (event.target.classList.contains("gallery__image")) {
+      const originalImageUrl = event.target.getAttribute('href');
+      const imgDescription = event.target.getAttribute('url');
 
-    if (event.target.classList.contains("gallery__image")) {
-         const originalImageUrl = event.target.getAttribute('href');
-    const imageDescription = event.target.getAttribute('alt');
-
-        const lightbox = new SimpleLightbox('.gallery a', {
-      animationSpeed: 250,
-            captions: true, 
-            
-           
-            captionsData: imageDescription,
-            captionPosition: 'bottom',
-           
-            
-
-        });
-        
-        lightbox.open(originalImageUrl);
+      const lightbox = new SimpleLightbox('.gallery a', {
+  
+    captions: true,
+    captionsData: imgDescription,
+    captionPosition: 'bottom',
+  captionDelay: 250 
+});
+    
+    lightbox.open(originalImageUrl);
   }
 });
